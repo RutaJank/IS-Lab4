@@ -15,7 +15,8 @@ P = cell2mat(pozymiai_tinklo_mokymui);
 T = [eye(11), eye(11), eye(11), eye(11), eye(11), eye(11), eye(11)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
-tinklas = newrb(P,T,0,1,20);
+%tinklas = newrb(P,T,0,1,20);
+tinklas = newff(P, T, 20);
 
 %% Tinklo patikra | Test of the network (recognizer)
 % skaièiuojamas tinklo iðëjimas neþinomiems poþymiams
@@ -118,7 +119,7 @@ end
 figure(8), text(0.1,0.5,atsakymas,'FontSize',38), axis off
 %% þodþio "FIKCIJA" poþymiø iðskyrimas 
 %% extract features for next/another test image
-%%pavadinimas = 'test_fikcija.png';
+pavadinimas = 'test_fikcija.png';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas
